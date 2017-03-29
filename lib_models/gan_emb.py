@@ -240,47 +240,6 @@ class GenerativeAdversarialNetwork(object):
 
 
 
-        # ----------
-        # EMBEDDING
-        # ----------
-
-        def _slice(x, n, dim):
-            if x.ndim == 3:
-                return x[:, :, n * dim:(n + 1) * dim]
-            elif x.ndim == 2:
-                return x[:, n * dim:(n + 1) * dim]
-            raise NotImplementedError
-
-        def document_lstm_step(x_t, h_m1, c_m1, W, U, b):
-            preact = T.dot(x_t, W) + T.dot(h_m1, U) + b                                             # (batch, 4*cnn_dim)
-            f = T.nnet.sigmoid(_slice(preact, 0, 33))
-            i = T.nnet.sigmoid(_slice(preact, 1, 33))
-            o = T.nnet.sigmoid(_slice(preact, 2, 33))
-            g = T.tanh(_slice(preact, 3, 33))
-            c_t = f * c_m1 + i * g
-            h_t = o * T.tanh(c_t)
-            return h_t, c_t                                                                         # (batch, cnn_dim)
-
-        def document_lstm(e):                                                            # Input is (batch, 33, 300)
-            l_h0 = e.dimshuffle(2, 0, 1)                                                # Reshaping to (300, batch, 33)
-            n_steps, n_batch = l_h0.shape[0], l_h0.shape[1]
-            rval, updates = \
-                theano.scan(
-                    fn=document_lstm_step,
-                    sequences=[l_h0],
-                    outputs_info=[T.alloc(floatX(0.), n_batch, 33),
-                                  T.alloc(floatX(0.), n_batch, 33)],
-                    non_sequences=[p['emb_lstm_W'], p['emb_lstm_U'], p['emb_lstm_b']],
-                    n_steps=n_steps,
-                    strict=True
-                )                                                                                       # rval[0] is (nsteps, batch, cnn_dim)
-            l_h1 = T.mean(rval[0], axis=0, dtype=theano.config.floatX, acc_dtype=theano.config.floatX)  # (batch, cnn_dim) - Embedding is the average of h_t, and not the final h_t
-            l_h2 = T.dot(l_h1, p['emb_lstm_02_W']) + p['emb_lstm_02_b']                               # (batch, emb_dim)
-            return l_h2
-
-
-
-
 
         # ---------------------
         # SqueezeNet fire modules (with bypass)
