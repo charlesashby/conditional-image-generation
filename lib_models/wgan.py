@@ -12,7 +12,7 @@ from theano.ifelse import ifelse
 theano.config.exception_verbosity = 'high'
 
 class WGAN(object):
-    """ Deep Residual GAN Implementation """
+    """ Wasserstein GAN Implementation """
 
     def build_model(self):
 
