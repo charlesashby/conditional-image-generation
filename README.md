@@ -3,7 +3,7 @@ We propose multiple models for conditional image generation on the COCO 2014
 dataset http://lisaweb.iro.umontreal.ca/transfert/lisa/datasets/mscoco_inpaiting/.
 
 
-##### Setup
+### Setup
 
 - Download the [COCO 2014 dataset](http://lisaweb.iro.umontreal.ca/transfert/lisa/datasets/mscoco_inpaiting/) 
 - Change the path to the dataset in data_utils.py
