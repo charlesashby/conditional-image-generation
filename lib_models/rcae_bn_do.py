@@ -10,7 +10,7 @@
 # presented in the paper "Image Restoration Using Convolutional
 # Auto-encoders with symmetric Skip Connections" - Mao, Shen & yang
 # https://arxiv.org/pdf/1606.08921.pdf
-from lib.Layers import *
+from lib.ops import *
 from lib.data_utils import *
 from lib.inits import *
 from lib.updates import *
