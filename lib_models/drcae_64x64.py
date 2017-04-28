@@ -9,8 +9,8 @@
 # We try to implement a deep residual convolutional autoencoder
 # like https://arxiv.org/pdf/1606.08921.pdf the implementation
 # of residual blocks is the same as https://arxiv.org/pdf/1512.03385.pdf
-from lib.Layers import *
-from lib.DataManagement import *
+from lib.ops import *
+from lib.data_utils import *
 from lib.inits import *
 from lib.updates import *
 from lib.initializations import *
