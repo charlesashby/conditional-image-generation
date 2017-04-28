@@ -4,8 +4,8 @@
 # the copying of multiple minibatches on the GPU instead of
 # loading data minibatch by minibatch which resulted in a
 # significant increase in performance (computational time - wise).
-from lib.Layers import *
-from lib.DataManagement import *
+from lib.ops import *
+from lib.data_utils import *
 from lib.inits import *
 from lib.updates import *
 from lib.initializations import *
