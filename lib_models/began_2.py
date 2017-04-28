@@ -12,7 +12,7 @@ from theano.ifelse import ifelse
 theano.config.exception_verbosity = 'high'
 
 class BEGAN(object):
-    """ Deep Residual GAN Implementation """
+    """ Boundary Equilibrium GAN Implementation """
 
     def build_model(self):
 
