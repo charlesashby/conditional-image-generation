@@ -602,15 +602,15 @@ class BEGAN(object):
                     # TODO: copy loss to some file
                     f = open('loss_began_squ.txt', 'a')
                     f.write('%06d, %.4f, %.4f, %.4f, %.4f, %.4f\n' %
-                            (batch_idx + 77507, g_cost, d_cost, k_tp, convergence_measure, gamma))
+                            (batch_idx, g_cost, d_cost, k_tp, convergence_measure, gamma))
                     f.close()
 
-                    if batch_idx % 100 == 0:
+                    if batch_idx % 600 == 0:
 
                         self.save_img(Z, 0, batch_size, 'train2014')
                       #  self.save('model_wgan_01.pkl')
-            if epoch % 1 == 0:
-                self.save('model_began_squ_2_epoch_%04d.pkl' % (epoch + 60))
+            if epoch % 3 == 0:
+                self.save('model_began_squ_2_epoch_%04d.pkl' % (epoch))
 
     def denorm_img(self, img):
         # image pixel values are cast from [-1, 1] -> [0,255]
