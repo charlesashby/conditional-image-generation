@@ -13,7 +13,7 @@ dataset http://lisaweb.iro.umontreal.ca/transfert/lisa/datasets/mscoco_inpaiting
 
 
 ```
-# e.g. to call the BEGAN model...
+# e.g. to train the BEGAN model...
 
 python main.py BEGAN
 ```
