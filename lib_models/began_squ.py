@@ -717,9 +717,6 @@ class BEGAN(object):
             'dis_f': 128,
             'mb_kernel_dim': 5,
             'mb_nb_kernels': 100,
-            'n_crit':   5,
-
-
         }
 
 if __name__ == '__main__':
