@@ -13,9 +13,10 @@ dataset http://lisaweb.iro.umontreal.ca/transfert/lisa/datasets/mscoco_inpaiting
 
 For example, you can call the BEGAN model in the command line with:
 
-'''
-     python main.py began
-'''
+```
+python main.py began
+```
+
 
 ### Some results using the Boundary Equilibrium GAN (BEGAN) model...
 
