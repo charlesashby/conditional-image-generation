@@ -13,4 +13,5 @@ dataset http://lisaweb.iro.umontreal.ca/transfert/lisa/datasets/mscoco_inpaiting
 
 ##### Some results using the Boundary Equilibrium GAN (BEGAN) model...
 
-![_config.yml]({{ site.baseurl }}/images/began_examples.png)
+![](began_examples.png)
+
