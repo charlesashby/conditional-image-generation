@@ -11,7 +11,7 @@ dataset http://lisaweb.iro.umontreal.ca/transfert/lisa/datasets/mscoco_inpaiting
 - Run the model you want by calling main.py in the terminal
 
 
-##### Some results using the Boundary Equilibrium GAN (BEGAN) model...
+### Some results using the Boundary Equilibrium GAN (BEGAN) model...
 
 ![](began_examples.png)
 
