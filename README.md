@@ -6,6 +6,7 @@ dataset http://lisaweb.iro.umontreal.ca/transfert/lisa/datasets/mscoco_inpaiting
 ### Setup
 
 - Download the [COCO 2014 dataset](http://lisaweb.iro.umontreal.ca/transfert/lisa/datasets/mscoco_inpaiting/) 
+- Fork the [Skip-Thought vector repo](https://github.com/ryankiros/skip-thoughts) and download the necessary dependencies
 - Change the path to the dataset in data_utils.py
 - Run create_embedding_dict function to create a pickled version of the embedded captions
 - Run the model you want by calling main.py in the terminal
