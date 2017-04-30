@@ -15,4 +15,4 @@ dataset http://lisaweb.iro.umontreal.ca/transfert/lisa/datasets/mscoco_inpaiting
 
 ![](began_examples.png)
 
-You can read the full blog post [here](https://charlesashby.github.io/gan/)
+You can read the full blog post [here](https://charlesashby.github.io/gan/).
