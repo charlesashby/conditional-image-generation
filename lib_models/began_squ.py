@@ -228,8 +228,11 @@ class BEGAN(object):
 
         p = self.params
 
-
-
+        # ----------------------------------------------
+        # SqueezeNet Implementation from 
+        # https://github.com/ppaquette/ift-6266-project
+        # ----------------------------------------------
+        
         def fire_type_A(input, w11s, w11e, w33e, w11b, g, b):
             squ_1x1 = convSqu(input, w11s, subsample=(1, 1), border_mode='half')
             exp_1x1 = convSqu(squ_1x1, w11e, subsample=(1, 1), border_mode='half')
@@ -722,6 +725,6 @@ class BEGAN(object):
 if __name__ == '__main__':
     network = BEGAN()
     network.build_model()
-    network.load('model_began_squ_2_epoch_0060.pkl')
+    #network.load('model_began_squ_2_epoch_0060.pkl')
     #network.load('model_began_full_recon_res_epoch_0012.pkl')
     network.train_model()
