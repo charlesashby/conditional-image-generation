@@ -48,13 +48,10 @@ class BEGAN(object):
         # ----------
         # Generator
         # ----------
-
-
-
-
         # SqueezeNet Parameters
         # Reference: SqueezeNet: AlexNet-Level Accuracy with 50x Fewer Parameters and <1MB Model Size, Iandola et al. 2016
         #            Exploration of the Effect of Residual Connection on top of SqueezeNet. Shen and Han.
+        
         s_03, e_03 = 16, 64
         s_04, e_04 = 16, 64
         s_05, e_05 = 32, 128
