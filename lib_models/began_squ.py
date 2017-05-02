@@ -723,5 +723,4 @@ if __name__ == '__main__':
     network = BEGAN()
     network.build_model()
     #network.load('model_began_squ_2_epoch_0060.pkl')
-    #network.load('model_began_full_recon_res_epoch_0012.pkl')
     network.train_model()
