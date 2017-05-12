@@ -10,11 +10,13 @@ if __name__ == '__main__':
         network = BEGAN()
         network.build_model()
         network.train_model()
+        
     elif args.model == 'GAN':
         from lib_models.gan_hole_reconstruction import *
         network = GenerativeAdversarialNetwork()
         network.build_model()
         network.train_model()
+        
     elif args.model == 'WGAN':
         from lib_models.wgan import *
         network = WGAN()
