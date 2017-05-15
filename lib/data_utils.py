@@ -27,7 +27,6 @@ import scipy.ndimage
 
 # vectors = encoder.encode(X)
 
-
 def find_between( s, first, last ):
     try:
         start = s.index( first ) + len( first )
@@ -70,8 +69,6 @@ def load_data(batch_idx, batch_size, split, key=None, new_embedding=None,
         img_array = np.array(img)
         img_array = np.array([img_array])
 
-
-
         ### Get input/target from the images
         center = (int(np.floor(img_array.shape[1] / 2.)),
                   int(np.floor(img_array.shape[2] / 2.)))
@@ -81,7 +78,6 @@ def load_data(batch_idx, batch_size, split, key=None, new_embedding=None,
         if rand > 0.50:
             for c in range(len(img_array[0])):
                 img_array[0][c] = scipy.ndimage.interpolation.rotate(img_array[0][c], angle=90)
-
 
         input = np.copy(img_array)
 
@@ -116,35 +112,19 @@ def load_data(batch_idx, batch_size, split, key=None, new_embedding=None,
             # Image.fromarray(target).show()
             # print i, caption_dict[cap_id]
 
-    #train_set_x = train_set_x.transpose((0, 3, 1, 2)) / 255.
-    #train_set_y = train_set_y.transpose((0, 3, 1, 2)) / 255.
-    #train_set_wrong_img = train_set_wrong_img.transpose(((0,3,1,2))) / 255.
-    #train_set_wrong_cropped = train_set_wrong_cropped.transpose(((0,3,1,2))) / 255.
     train_set_x = np.asarray((train_set_x / 255. ) * 2. - 1., dtype='float32')
     train_set_y = np.asarray((train_set_y / 255. ) * 2. - 1., dtype='float32')
-    #train_set_wrong_img = np.asarray(train_set_wrong_img * 2. - 1., dtype='float32')
-    #train_set_wrong_cropped = np.asarray(train_set_wrong_cropped * 2. - 1., dtype='float32')
-    #train_set_x = np.asarray(train_set_x , dtype='float32')
-    #train_set_y = np.asarray(train_set_y , dtype='float32')
-    #return (train_set_x, train_set_y, train_set_emb, train_set_wrong_cropped, train_set_wrong_img)
+    
     return (train_set_x, train_set_y, train_set_emb)
 
 def iterate_minibatches(batch_size, split, output_mode='64x64', l = 82611):
     """ Create an iterator for GPU batches """
-    #if split == 'train2014':
-    #    l = 82611
-        #l = 25
-    #else:
-    #    l = 40438
 
     for start_idx in range(0, l // batch_size):
 
-        #inputs, targets, embedding, wrong_cropped, wrong_img\
-        #    = load_data(start_idx, batch_size, split, output_mode=output_mode)
         inputs, targets, embedding\
             = load_data(start_idx, batch_size, split, output_mode=output_mode)
-        #yield np.asarray(inputs, dtype='float32'), np.asarray(targets, dtype='float32')
-        #yield inputs, targets, embedding, wrong_cropped, wrong_img
+
         yield inputs, targets, embedding
 
 def create_emb_dict(split, encoder,
@@ -166,8 +146,7 @@ def create_emb_dict(split, encoder,
         sentence = dict_keys[key][0]
         temp_k.append(key)
         temp_s.append(sentence)
-        #embedding = encoder.encode([sentence])
-        #emb_dict[key] = embedding
+
     assert len(temp_k) == len(temp_s)
     print('Encoding...')
     embeddings = encoder.encode(temp_s)
