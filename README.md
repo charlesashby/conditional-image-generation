@@ -23,4 +23,4 @@ python main.py BEGAN
 
 ![](began_examples.png)
 
-You can read the full blog post [here](https://charlesashby.github.io/gan/).
+You can read the full blog post [here](https://charlesashby.github.io/2017/03/15/gan/).
